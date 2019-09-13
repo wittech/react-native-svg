@@ -23,7 +23,7 @@ android {
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 16)
         //noinspection OldTargetApi
-        targetSdkVersion safeExtGet('targetSdkVersion', 28)
+        targetSdkVersion safeExtGet('targetSdkVersion', 26)
     }
     lintOptions {
         abortOnError false
@@ -42,5 +42,9 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:${safeExtGet('reactnativeVersion', '+')}"
+//    implementation "com.facebook.react:react-native:${safeExtGet('reactnativeVersion', '+')}"
+  compileOnly files('../libs/ReactAndroid-release.aar')
+  api "com.google.code.findbugs:jsr305:3.0.2"
+  api("com.facebook.fresco:fresco:1.12.1")
+  api("com.facebook.fresco:imagepipeline-okhttp3:1.12.1")
 }
